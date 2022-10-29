@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="style.css
+    "
+    />
+  </head>
+  <body>
+    <div class="todo main" id="box">
+      <div class="header"><h1>TO-DO List</h1></div>
+      <div>
+        <label id="lblsuccess" class="text-success" style="display: none">
+        </label>
+        <textarea
+          name="textarea"
+          id="txt"
+          placeholder="write something...."
+          value=""
+        ></textarea>
+        <br />
+
+        <button class="btn" id="addbtn" onclick="myFunction()">Add</button>
+      </div>
+
+      <div class="container" id="tasks">
+        <h3>Tasks</h3>
+        <ul id="itemslist" class="itemlist"></ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
