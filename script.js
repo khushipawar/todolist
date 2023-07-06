@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Table, Input, Select } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
 
 const { Search } = Input;
 const { Option } = Select;
@@ -24,7 +23,7 @@ const FileTable: React.FC<FileTableProps> = ({ data = [] }) => {
   const getColumnSearchProps = (dataIndex: keyof DataType, columnTitle: string) => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <div style={{ padding: 8 }}>
-        <Search
+        <Input
           placeholder={`Search ${columnTitle}`}
           value={selectedKeys[0]}
           onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
@@ -49,9 +48,7 @@ const FileTable: React.FC<FileTableProps> = ({ data = [] }) => {
         </div>
       </div>
     ),
-    filterIcon: (filtered: boolean) => (
-      <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
-    ),
+    filterIcon: (filtered: boolean) => null,
     onFilter: (value: string, record: DataType) =>
       record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()),
     onFilterDropdownVisibleChange: (visible: boolean) => {
@@ -102,10 +99,11 @@ const FileTable: React.FC<FileTableProps> = ({ data = [] }) => {
       ),
     },
     {
-      title: 'Version
+      title: 'Version',
       dataIndex: 'version',
       key: 'version',
-  },
+    },
+ 
 ];
 
 interface FileTableProps {
